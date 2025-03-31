@@ -78,3 +78,7 @@ Data-Driven Testing (DDT): Annotations to handle test data variations
 Aquality Framework (Optional): Open-source framework for simplifying web UI and API testing (Java only)
 Continuous Integration (CI): Integration with Jenkins for automated builds and test execution (Optional)
 
+
+
+
+
