@@ -1,18 +1,4 @@
-# Quality Assurance Automation Engineering
-
-## Description
-Various Testing Scenarios were conductted on the ...
-
-- [Test Website](https://the-internet.herokuapp.com/)
-- AccuWeather
-- Wikipedia
-- W3School
-
-Using ...
-- Selenium
-- Aquality Framework
-- Behavior-Driven Development (BDD) using Cucumber Gherkin
-- Data-Driven Test# Qualification Renewal Practical Task
+Qualification Renewal Practical Task
 
 ## Task Description
 
