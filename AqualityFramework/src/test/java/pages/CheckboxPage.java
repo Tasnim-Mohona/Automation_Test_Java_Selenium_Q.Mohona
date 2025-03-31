@@ -5,12 +5,12 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class CheckboxPage extends Form {
-    private static final By PAGE_HEADING = By.xpath("//a[contains(text(),'Checkboxes')]");
-    private final By CHECKBOX1 = By.xpath("//*[text()[contains(.,'checkbox 1')]]");
+
+    private final By CHECKBOX1 = By.xpath("//form[@id='checkboxes']/input[1]");
     protected final ICheckBox checkboxBtn1 = getElementFactory().getCheckBox(CHECKBOX1, "Checkbox1");
 
     public CheckboxPage() {
-        super(PAGE_HEADING, "Page Name");
+        super(By.xpath("//*[contains(., 'Checkboxes')]"), "Page Name");
     }
 
     public void clickCheckbox() {
