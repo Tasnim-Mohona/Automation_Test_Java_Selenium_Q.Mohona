@@ -1,29 +1,21 @@
 package pages;
 
 import aquality.selenium.browser.AqualityServices;
-import aquality.selenium.elements.interfaces.IButton;
-import aquality.selenium.elements.interfaces.ILink;
+import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class NewWindowPage extends Form {
-    private final ILink toolsBtn = AqualityServices.getElementFactory().getLink(By.id("vector-page-tools-dropdown"), "Tools Button");
-    private final IButton pageInformationLocator = getElementFactory().getButton(By.id("t-info"), "Page Information");
-    private final ILink downloadBtn = AqualityServices.getElementFactory().getLink(By.xpath("//span[text()='Download as PDF']"), "Download Link");
+    private final ITextBox headerTextBox = AqualityServices.getElementFactory().getTextBox(
+            By.tagName("h3"),
+            "New Window Header"
+    );
 
     public NewWindowPage() {
-        super(By.xpath("//input[@aria-label='Tools']"), "Tools");
+        super(By.tagName("h3"), "New Window Page");
     }
 
-    public void clickTools() {
-        toolsBtn.click();
-    }
-
-    public void clickFileDownloadPageBtn() {
-        downloadBtn.click();
-    }
-
-    public void clickPageInfo() {
-        pageInformationLocator.click();
+    public String getHeaderText() {
+        return headerTextBox.getText();
     }
 }

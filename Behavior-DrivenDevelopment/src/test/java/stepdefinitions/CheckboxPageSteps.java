@@ -4,14 +4,14 @@ import aquality.selenium.browser.AqualityServices;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.CheckboxPage;
+import pages.CheckboxesPage;
 
 public class CheckboxPageSteps {
-    private CheckboxPage checkboxPage;
+    private final CheckboxesPage checkboxPage = new CheckboxesPage();
 
     @Then("the Checkboxes page should be displayed")
     public void verifyCheckboxesPageDisplayed() {
-        checkboxPage.state().waitForDisplayed();
+//        checkboxPage.state().waitForDisplayed();
         Assert.assertTrue(checkboxPage.state().isDisplayed(), "Checkboxes page is not displayed");
     }
 

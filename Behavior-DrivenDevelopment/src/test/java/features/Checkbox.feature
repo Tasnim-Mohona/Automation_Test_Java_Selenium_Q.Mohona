@@ -3,6 +3,7 @@ Feature: Checkbox Functionality Test
 
   Scenario: Verify checkbox state after selection and page refresh
     Given I am on the-internet homepage in incognito mode
+#    When I navigate to the "Checkboxes" page
     When I navigate to the Checkboxes page
     Then the Checkboxes page should be displayed
     When I select Checkbox 1
