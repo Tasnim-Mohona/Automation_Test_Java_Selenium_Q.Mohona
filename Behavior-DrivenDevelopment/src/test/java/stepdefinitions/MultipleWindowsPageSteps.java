@@ -25,6 +25,7 @@ public class MultipleWindowsPageSteps {
         Assert.assertTrue(AqualityServices.getConditionalWait().waitFor(() ->
                         multipleWindowsPage.state().isDisplayed()),
                 linkText + " link is not visible");
+        Assert.assertTrue(multipleWindowsPage.isClickHereLinkDisplayed(),"The link is not displayed");
     }
     @When("I switch back to the original tab")
     public void switchToOriginalTab() {
