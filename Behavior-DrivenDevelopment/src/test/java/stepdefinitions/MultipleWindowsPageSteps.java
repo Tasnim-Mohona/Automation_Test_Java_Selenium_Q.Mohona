@@ -1,40 +1,22 @@
 package stepdefinitions;
 
-import aquality.selenium.browser.AqualityServices;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
+import io.cucumber.java.en.Then;
 import pages.MultipleWindowsPage;
+import org.testng.Assert;
 
 public class MultipleWindowsPageSteps {
-
-    private MultipleWindowsPage multipleWindowsPage;
-    private String originalWindowHandle;
+    private final MultipleWindowsPage multipleWindowsPage = new MultipleWindowsPage();
 
     @Then("the Multiple Windows page should be displayed")
-    public void verifyMultipleWindowsPageDisplayed() {
-        multipleWindowsPage = new MultipleWindowsPage();
+    public void verifyMultipleWindowsPage() {
         multipleWindowsPage.state().waitForDisplayed();
         Assert.assertTrue(multipleWindowsPage.state().isDisplayed(),
-                "Multiple Windows page is not displayed");
+                "Multiple Windows page should be visible");
     }
 
-    @And("the {string} link should be visible")
-    public void verifyClickHereLinkVisible(String linkText) {
-        Assert.assertTrue(AqualityServices.getConditionalWait().waitFor(() ->
-                        multipleWindowsPage.state().isDisplayed()),
-                linkText + " link is not visible");
-        Assert.assertTrue(multipleWindowsPage.isClickHereLinkDisplayed(),"The link is not displayed");
-    }
-    @When("I switch back to the original tab")
-    public void switchToOriginalTab() {
-        AqualityServices.getBrowser().tabs().switchTo(originalWindowHandle);
-    }
-    @When("I click the {string} link")
-    public void clickClickHereLink(String linkText) {
-        originalWindowHandle = AqualityServices.getBrowser().tabs().getCurrentHandle();
+    @When("I click the Click Here link")
+    public void clickClickHereLink() {
         multipleWindowsPage.clickHereLink();
     }
-
 }

@@ -1,14 +1,13 @@
-Feature: Multiple Windows Functionality Test
-  Test the multiple windows behavior including tab handling and navigation
-
-  Scenario: Verify window handling and back navigation
+Feature: Multiple Windows Navigation
+  Scenario: Verify window handling functionality
     Given I am on the-internet homepage in incognito mode
-#    When I navigate to the "Multiple Windows" page
     Then I navigate to the Multiple Window page
     Then the Multiple Windows page should be displayed
-    And the "Click Here" link should be visible
-    When I click the "Click Here" link
-    Then a new tab with "New Window" header should open
-    When I switch back to the original tab
-    And I navigate back to the main page
+    When I store the current tab handle
+    And I click the Click Here link
+    And I wait for and switch to new tab
+    Then the New Window page should be displayed
+    And the page header should be "New Window"
+    When I switch back to original tab
+    And I navigate back to previous page
     Then the main page should be displayed
