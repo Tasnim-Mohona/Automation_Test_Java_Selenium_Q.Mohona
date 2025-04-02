@@ -4,6 +4,7 @@ import lombok.Getter;
 
     @Getter
     public enum IndexPageNavigation {
+        CLICK_HERE("Click Here"),
         CHECKBOXES("Checkboxes"),
         MULTIPLE_WINDOWS("Multiple Windows"),
         JAVASCRIPT_ALERT("JavaScript Alerts"),

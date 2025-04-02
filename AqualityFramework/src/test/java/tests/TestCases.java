@@ -23,18 +23,35 @@ public class TestCases extends BaseTest {
         Assert.assertFalse(checkboxPage.isSelected(), "Checkbox 1 should be unchecked");
     }
 
+
     @Test
-    public void Testcase2() {
+    public void testMultipleWindowsNavigation() {
+
         IndexPage indexPage = new IndexPage();
         MultipleWindowsPage multipleWindowsPage = new MultipleWindowsPage();
-        NewWindowPage newWindowPage = new NewWindowPage();
+
         indexPage.clickNavigationLink(IndexPageNavigation.MULTIPLE_WINDOWS);
-        Assert.assertTrue(multipleWindowsPage.state().isDisplayed(), "Multiple Windows Page is not Displayed");
-        AqualityServices.getBrowser().tabs().getTabHandles();
-        multipleWindowsPage.clickHereLink();
-        Assert.assertTrue(newWindowPage.state().isDisplayed(), "New Window Page is not Displayed");
-        AqualityServices.getBrowser().tabs().switchToTab(0);
+        multipleWindowsPage.state().waitForDisplayed();
+        Assert.assertTrue(multipleWindowsPage.state().isDisplayed(),
+                "Multiple Windows page should be displayed");
+
+        String originalTab = AqualityServices.getBrowser().tabs().getCurrentTabHandle();
+
+        multipleWindowsPage.clickNavigationLink(IndexPageNavigation.CLICK_HERE);
+
+        AqualityServices.getBrowser().tabs().getCurrentTabHandle();
+        AqualityServices.getBrowser().tabs().switchToLastTab();
+
+        NewWindowPage newWindowPage = new NewWindowPage();
+        newWindowPage.state().waitForDisplayed();
+        Assert.assertTrue(newWindowPage.state().isDisplayed(),
+                "New Window page should be displayed");
+
+        AqualityServices.getBrowser().tabs().switchToTab(originalTab);
         AqualityServices.getBrowser().goBack();
-        Assert.assertTrue(indexPage.state().isDisplayed(), "Index Windows Page not Displayed");
+
+        indexPage.state().waitForDisplayed();
+        Assert.assertTrue(indexPage.state().isDisplayed(),
+                "Main page should be displayed after navigation");
     }
 }

@@ -27,8 +27,8 @@ import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
 import constants.IndexPageNavigation;
-import org.openqa.selenium.By;
 import constants.LocatorConstants;
+import org.openqa.selenium.By;
 
 public class IndexPage extends Form {
 
@@ -37,7 +37,7 @@ public class IndexPage extends Form {
     }
 
     private ILink getNavigationLink(IndexPageNavigation navigation) {
-        return AqualityServices.getElementFactory().getLink(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH,navigation.getLabel())), navigation.getLabel());
+        return AqualityServices.getElementFactory().getLink(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, navigation.getLabel())), navigation.getLabel());
     }
 
     public void clickNavigationLink(IndexPageNavigation navigation) {
