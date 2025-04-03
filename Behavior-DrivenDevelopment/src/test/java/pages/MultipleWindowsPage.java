@@ -8,20 +8,26 @@ import constants.LocatorConstants;
 import org.openqa.selenium.By;
 
 public class MultipleWindowsPage extends Form {
-    private static final String PAGE_NAME = "Multiple Window";
-    private final ILink clickHereLink = AqualityServices.getElementFactory().getLink(By.linkText("Click Here"),
-            "Click Here Link"
-    );
+    private static final String PAGE_NAME = "Click Here";
+    private final ILink clickHereLink = AqualityServices.getElementFactory().getLink(By.linkText("Click Here"), "Click Here");
 
     public MultipleWindowsPage() {
-        super(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, IndexPageNavigation.MULTIPLE_WINDOWS)), PAGE_NAME);
+        super(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, PAGE_NAME)), PAGE_NAME);
+    }
+
+    public ILink getNavigationLink(IndexPageNavigation navigation) {
+        return AqualityServices.getElementFactory().getLink(By.xpath(String.format(LocatorConstants.PARTICULAR_TEXT_XPATH, navigation.getLabel())), navigation.getLabel());
+    }
+
+    public void clickNavigationLink(IndexPageNavigation navigation) {
+        getNavigationLink(navigation).click();
     }
 
     public void clickHereLink() {
-        clickHereLink.click();
+        clickNavigationLink(IndexPageNavigation.CLICK_HERE);
     }
 
-    public boolean isClickHereLinkDisplayed() {
-        return clickHereLink.state().isDisplayed();
+    public String getHeaderText() {
+        return clickHereLink.getText();
     }
 }

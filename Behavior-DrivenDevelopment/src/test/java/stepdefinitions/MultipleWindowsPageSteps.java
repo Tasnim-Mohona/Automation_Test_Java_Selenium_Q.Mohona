@@ -1,18 +1,16 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import pages.MultipleWindowsPage;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
+import pages.MultipleWindowsPage;
 
 public class MultipleWindowsPageSteps {
     private final MultipleWindowsPage multipleWindowsPage = new MultipleWindowsPage();
 
-    @Then("the Multiple Windows page should be displayed")
-    public void verifyMultipleWindowsPage() {
-        multipleWindowsPage.state().waitForDisplayed();
-        Assert.assertTrue(multipleWindowsPage.state().isDisplayed(),
-                "Multiple Windows page should be visible");
+    @Then("I validate Multiple Page Header is {string}")
+    public void verifyMultipleWindowsPage(String expectedHeader) {
+        Assert.assertEquals(multipleWindowsPage.getHeaderText(), expectedHeader, "Header text mismatch");
     }
 
     @When("I click the Click Here link")

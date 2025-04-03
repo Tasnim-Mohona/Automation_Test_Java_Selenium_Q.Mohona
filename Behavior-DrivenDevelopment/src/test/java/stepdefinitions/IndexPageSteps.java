@@ -20,7 +20,7 @@ public class IndexPageSteps {
         indexPages.clickNavigationLink(IndexPageNavigation.CHECKBOXES);
     }
 
-    @Then("I navigate to the Multiple Window page")
+    @When("I navigate to the Multiple Window page")
     public void navigateToMultipleWindowsPage() {
         indexPages.clickNavigationLink(IndexPageNavigation.MULTIPLE_WINDOWS);
     }
@@ -32,9 +32,3 @@ public class IndexPageSteps {
                 "Main page is not displayed after navigation");
     }
 }
-
-
-//    @When("I navigate to the {string} page")
-//    public void navigateToMultipleWindowsPage(String navigate) {
-//        indexPages.clickNavigationLink(IndexPageNavigation.valueOf(navigate));
-//    }

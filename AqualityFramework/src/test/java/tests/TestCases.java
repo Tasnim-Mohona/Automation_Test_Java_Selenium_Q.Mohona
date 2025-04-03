@@ -32,6 +32,7 @@ public class TestCases extends BaseTest {
 
         indexPage.clickNavigationLink(IndexPageNavigation.MULTIPLE_WINDOWS);
         multipleWindowsPage.state().waitForDisplayed();
+
         Assert.assertTrue(multipleWindowsPage.state().isDisplayed(),
                 "Multiple Windows page should be displayed");
 
