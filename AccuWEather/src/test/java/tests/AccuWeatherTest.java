@@ -29,7 +29,7 @@ public class AccuWeatherTest extends BaseTest {
 
         List<WebElement> searchResults = driver.findElements(SEARCH_RESULT_LOCATOR);
         if (!searchResults.isEmpty()) {
-            WebElement firstElement = searchResults.getFirst();
+            WebElement firstElement = searchResults.get(0);
             firstElement.click();
             WaitForElementVisibility(CLICKED_PAGE);
         }
